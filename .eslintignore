@@ -1,0 +1,28 @@
+# Ignorar a pasta node_modules
+/node_modules
+
+# Ignorar a pasta de builds do Next.js
+/.next
+/out
+
+# Ignorar arquivos de configuração local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de cache
+.cache
+
+# Ignorar arquivos de sistema
+.DS_Store
+
+# Ignorar arquivos específicos
+public/favicon.ico
+src/old-code/
+
+# Ignorar arquivos Markdown na pasta docs
+/docs/*.md
