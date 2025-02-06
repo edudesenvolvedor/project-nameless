@@ -1,0 +1,17 @@
+.container {
+    padding: 0 2rem;
+}
+
+.header {
+    padding: 32px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {}
+
+
+
+
