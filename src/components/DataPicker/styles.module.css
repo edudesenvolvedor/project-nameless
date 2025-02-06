@@ -1,0 +1,49 @@
+.inputContainer {
+    position: relative;
+}
+
+.inputContainer input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+
+.inputContainer label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 5px;
+    font-size: 16px;
+    color: gray;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.inputContainer input:focus,
+.inputContainer input:not(:placeholder-shown) {
+    border-color: #6200ea;
+}
+
+.inputContainer input:focus + label,
+.inputContainer input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 12px;
+    color: #6200ea;
+}
+
+/* Corrige a aparência do input type="date" */
+.inputContainer input[type="date"] {
+    color: transparent; /* Esconde a data */
+}
+
+.inputContainer input[type="date"]:focus,
+.inputContainer input[type="date"]:valid {
+    color: black; /* Mostra a data ao digitar */
+}
