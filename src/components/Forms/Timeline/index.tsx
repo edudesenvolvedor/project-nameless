@@ -8,13 +8,9 @@ export type StepData = {
   isLast: boolean;
 };
 
-export type TimelineData = {
-  steps: StepData[];
-};
-
 type Props = {
   title?: string;
-  data?: TimelineData;
+  data?: StepData[];
 };
 
 const Timeline = (props: Props) => {
@@ -22,8 +18,7 @@ const Timeline = (props: Props) => {
     <div>
       <div className={styles.title}>{props.title}</div>
       <div>
-        {props.data &&
-          props.data?.steps.map((item, i) => <Step key={i} {...item} />)}
+        {props.data && props.data?.map((item, i) => <Step key={i} {...item} />)}
       </div>
     </div>
   );
