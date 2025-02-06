@@ -15,6 +15,9 @@ const ReportCreatePage = () => {
       <div className={styles.sidebar}>
         <Timeline title={'Create Report'} data={steps} />
       </div>
+      <div className={styles.containerForms}>
+        <CreateReport />.
+      </div>
     </div>
   );
 };
