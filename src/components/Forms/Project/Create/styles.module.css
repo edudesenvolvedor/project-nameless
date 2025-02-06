@@ -1,0 +1,98 @@
+.container {
+    max-width: 800px;
+    background-color: #ededed;
+    padding: 50px;
+    border-radius: 16px;
+}
+
+.title {
+    font-size: 16pt;
+    margin-bottom: 32px;
+}
+
+.dateWrapper {
+    display: flex;
+    margin-bottom: 16px;
+
+    & * {
+        margin-right: 16px;
+    }
+}
+
+.button {
+    /* Estilos básicos */
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+
+    /* Gradiente moderno */
+    background: linear-gradient(135deg, #4a90e2, #6366f1);
+    color: white;
+
+    /* Sombra suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Posição relativa para efeitos */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito hover */
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #6366f1, #4a90e2);
+}
+
+/* Efeito ao clicar */
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de brilho (opcional) */
+.button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg) translate(-20%, 100%);
+    transition: all 0.5s ease;
+}
+
+.button:hover::after {
+    transform: rotate(45deg) translate(20%, -100%);
+}
+
+/* Versões alternativas */
+.buttonSuccess {
+    composes: button;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.buttonDanger {
+    composes: button;
+    background: linear-gradient(135deg, #f56565, #e53e3e);
+}
+
+.buttonOutline {
+    composes: button;
+    background: transparent;
+    border: 2px solid #4a90e2;
+    color: #4a90e2;
+}
+
+.buttonOutline:hover {
+    background: #4a90e2;
+    color: white;
+}
