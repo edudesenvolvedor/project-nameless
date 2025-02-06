@@ -1,0 +1,9 @@
+.stepWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 24pt;
+    margin-bottom: 32px;
+}

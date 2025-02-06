@@ -1,0 +1,43 @@
+.stepWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.bubble {
+    position: relative;
+}
+
+.line {
+    padding-bottom: 50px;
+}
+
+.line:after {
+    content: '';
+    position: absolute;
+    height: 50px;
+    left: 30px;
+    border-left: 4px solid black;
+}
+
+.step {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    background-color: #c6c2c2;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 30pt;
+    font-weight: 700;
+    margin-right: 16px;
+    border: 4px solid white;
+}
+
+.stepTitle {
+    font-size: 20pt;
+}
+
+.stepChecked {
+    background-color: #49b349;
+    color: white;
+}
