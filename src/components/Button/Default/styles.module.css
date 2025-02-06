@@ -1,0 +1,28 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.iconWrapperLeft {
+    composes: iconWrapper;
+    margin-left: 4px;
+}
+
+.iconWrapperRight {
+    composes: iconWrapper;
+    margin-right: 4px;
+}
+
+.contentWrapper {
+    margin: 0 4px;
+}
