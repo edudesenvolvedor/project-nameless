@@ -1,0 +1,59 @@
+.body {
+    background: #f8f7f5;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.title {
+    font-size: 16pt;
+    font-weight: 600;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+    background-color: white;
+    padding: 32px;
+    border-radius: 32px;
+    align-items: center;
+}
+
+.containerFilter {
+    display: flex;
+
+}
+
+.filter {
+    display: flex;
+    margin-right: 16px;
+    font-size: 16px;
+    font-weight: 700;
+
+    & *{
+        margin-right: 8px;
+    }
+
+    &:hover {
+        color: #318e86;
+        cursor: pointer;
+    }
+}
+
+.filterActive {
+    composes: filter;
+    color: #318e86;
+}
+
+.content {
+    margin: 16px;
+    background-color: white;
+    padding: 32px;
+    border-radius: 32px;
+    display: flex;
+}
