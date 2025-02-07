@@ -8,10 +8,12 @@
 
 .forgetPassword {
     margin-left: auto;
+    margin-bottom: 12px;
     padding: 8px 0;
     font-size: 14pt;
+    color: #3eb3a9;
 
     &:hover {
-        color: blue;
+        color: #2d8079;
     }
 }
