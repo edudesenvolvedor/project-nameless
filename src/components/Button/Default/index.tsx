@@ -7,7 +7,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const Default = (props: Props) => (
-  <button className={styles.button}>
+  <button className={`${styles.button} ${props.className}`} {...props}>
     {props.iconLeft && (
       <span className={styles.iconWrapperLeft}>{props.iconLeft}</span>
     )}
