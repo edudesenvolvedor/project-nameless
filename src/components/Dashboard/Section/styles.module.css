@@ -1,0 +1,10 @@
+.container {
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 14pt;
+    text-transform: uppercase;
+    opacity: .5;
+    margin-bottom: 14px;
+}
