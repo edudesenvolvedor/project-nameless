@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes } from 'react';
 import styles from './styles.module.css';
 import TextField from '@/components/Input/TextField';
+import Button from '@/components/Input/Button';
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -16,5 +17,7 @@ const Input = (props: Props) => (
 );
 
 Input.TextField = TextField;
+
+Input.Button = Button;
 
 export default Input;
