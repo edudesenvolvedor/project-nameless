@@ -4,10 +4,11 @@ import { IoIosInformationCircleOutline } from 'react-icons/io';
 import { LuCircleCheckBig } from 'react-icons/lu';
 import { FaPlus } from 'react-icons/fa';
 import Button from '@/components/Button';
-import Card from '@/components/Card';
+import { ReactNode } from 'react';
 
 type Props = {
   title?: string;
+  children?: ReactNode;
 };
 
 const Panel = (props: Props) => (
@@ -30,9 +31,7 @@ const Panel = (props: Props) => (
       </div>
       <Button.Default iconLeft={<FaPlus />}>Criar Novo Projeto</Button.Default>
     </div>
-    <div className={styles.content}>
-      <Card.Project></Card.Project>
-    </div>
+    <div className={styles.content}>{props.children}</div>
   </div>
 );
 
