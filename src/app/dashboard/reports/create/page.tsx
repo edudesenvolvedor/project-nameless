@@ -1,4 +1,3 @@
-import CreateReport from '@/components/Forms/CreateReport';
 import Timeline, { StepData } from '@/components/Forms/Timeline';
 import styles from './styles.module.css';
 
@@ -15,9 +14,7 @@ const ReportCreatePage = () => {
       <div className={styles.sidebar}>
         <Timeline title={'Create Report'} data={steps} />
       </div>
-      <div className={styles.containerForms}>
-        <CreateReport />.
-      </div>
+      <div className={styles.containerForms}></div>
     </div>
   );
 };
