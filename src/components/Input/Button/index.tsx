@@ -7,7 +7,7 @@ type Props = ComponentProps<typeof Input>;
 const Button = (props: Props) => (
   <Input
     inputProps={{
-      type: 'button',
+      type: 'submit',
       className: styles.button,
       value: props.label,
     }}
