@@ -1,48 +1,34 @@
 'use client';
-
 import styles from './styles.module.css';
 import Link from 'next/link';
-import { ChangeEvent, FormEvent } from 'react';
-import { useState } from 'react';
-import IFormData from '@/components/Forms/SignIn/IFormData';
 import TextField from '@/components/Input/TextField';
 import Button from '@/components/Input/Button';
+import { signIn } from 'next-auth/react';
+import React from 'react';
+import { redirect } from 'next/navigation';
 
 const FormSignIn = () => {
-  const [data, setData] = useState<IFormData>({
-    email: '',
-    password: '',
-  });
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
 
-    console.log(data);
-    //redirect('/dashboard');
+    const res = await signIn('credentials', {
+      email: formData.get('email'),
+      password: formData.get('password'),
+      redirect: false,
+    });
+
+    if (res?.error) {
+      return;
+    }
+
+    redirect('/dashboard');
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.container}>
-      <TextField
-        label={'Email'}
-        name={'email'}
-        type={'email'}
-        onChange={handleChange}
-      />
-      <TextField
-        label={'Senha'}
-        name={'password'}
-        type={'password'}
-        onChange={handleChange}
-      />
+    <form onSubmit={handleLogin} className={styles.container}>
+      <TextField label={'Email'} name={'email'} type={'email'} />
+      <TextField label={'Senha'} name={'password'} type={'password'} />
       <Link className={styles.forgetPassword} href={'/'}>
         Esqueceu a senha?
       </Link>
