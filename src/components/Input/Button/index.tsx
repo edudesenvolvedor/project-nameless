@@ -1,10 +1,17 @@
 import styles from './styles.module.css';
-import { InputHTMLAttributes } from 'react';
+import { ComponentProps } from 'react';
+import Input from '@/components/Input';
 
-type Props = InputHTMLAttributes<HTMLInputElement>;
+type Props = ComponentProps<typeof Input>;
 
 const Button = (props: Props) => (
-  <input className={styles.button} type={'submit'} {...props} />
+  <Input
+    inputProps={{
+      type: 'submit',
+      className: styles.button,
+      value: props.label,
+    }}
+  />
 );
 
 export default Button;

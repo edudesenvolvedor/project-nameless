@@ -1,23 +1,49 @@
-import React, { InputHTMLAttributes } from 'react';
-import styles from './styles.module.css';
-import TextField from '@/components/Input/TextField';
-import Button from '@/components/Input/Button';
+'use client';
 
-type Props = InputHTMLAttributes<HTMLInputElement> & {
+import React, {
+  ChangeEvent,
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+} from 'react';
+import styles from './styles.module.css';
+
+type Props = HTMLAttributes<HTMLDivElement> & {
   label?: string;
+  name?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  inputProps?: InputHTMLAttributes<HTMLInputElement>;
+  labelProps?: LabelHTMLAttributes<HTMLLabelElement>;
 };
 
-const Input = (props: Props) => (
-  <div className={styles.container}>
-    <label className={styles.label} htmlFor={props.id}>
-      {props.label}
-    </label>
-    <input {...props} className={styles.input} />
-  </div>
-);
-
-Input.TextField = TextField;
-
-Input.Button = Button;
+const Input: React.FC<Props> = ({
+  label,
+  inputProps,
+  labelProps,
+  onChange,
+  name,
+  ...props
+}: Props) => {
+  return (
+    <div className={`${styles.container} ${props.className}`} {...props}>
+      <input
+        onChange={onChange}
+        name={name}
+        placeholder={' '}
+        className={`${styles.input} ${inputProps?.className}`}
+        {...inputProps}
+      />
+      {label && (
+        <label
+          className={`${styles.label} ${labelProps?.className}`}
+          htmlFor={inputProps?.id ?? labelProps?.htmlFor}
+          {...labelProps}
+        >
+          {label}
+        </label>
+      )}
+    </div>
+  );
+};
 
 export default Input;

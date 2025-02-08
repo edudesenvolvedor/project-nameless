@@ -1,34 +1,38 @@
 'use client';
-
 import styles from './styles.module.css';
 import Link from 'next/link';
-import Input from '@/components/Input';
-import { FormEvent } from 'react';
+import TextField from '@/components/Input/TextField';
+import Button from '@/components/Input/Button';
+import { signIn } from 'next-auth/react';
+import React from 'react';
 import { redirect } from 'next/navigation';
 
 const FormSignIn = () => {
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    const res = await signIn('credentials', {
+      email: formData.get('email'),
+      password: formData.get('password'),
+      redirect: false,
+    });
+
+    if (res?.error) {
+      return;
+    }
 
     redirect('/dashboard');
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.container}>
-      <Input.TextField
-        label={'Email'}
-        type="email"
-        placeholder="exemplo@exemplo.com"
-      />
-      <Input.TextField
-        label={'Senha'}
-        type="password"
-        placeholder="••••••••••••••••••••••••••"
-      />
+    <form onSubmit={handleLogin} className={styles.container}>
+      <TextField label={'Email'} name={'email'} type={'email'} />
+      <TextField label={'Senha'} name={'password'} type={'password'} />
       <Link className={styles.forgetPassword} href={'/'}>
         Esqueceu a senha?
       </Link>
-      <Input.Button value="Sign In" />
+      <Button label={'Login'} />
     </form>
   );
 };
