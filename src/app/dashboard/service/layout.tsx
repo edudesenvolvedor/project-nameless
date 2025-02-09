@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import Dashboard from '@/components/Dashboard';
-import Panel from '@/components/Panel';
 
 type Props = {
   children: ReactNode;
