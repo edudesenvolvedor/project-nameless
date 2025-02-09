@@ -5,9 +5,11 @@ import TextField from '@/components/Input/TextField';
 import Button from '@/components/Input/Button';
 import { signIn } from 'next-auth/react';
 import React from 'react';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const FormSignIn = () => {
+  const router = useRouter();
+
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
@@ -16,13 +18,14 @@ const FormSignIn = () => {
       email: formData.get('email'),
       password: formData.get('password'),
       redirect: false,
+      callbackUrl: '/dashboard',
     });
 
     if (res?.error) {
       return;
     }
 
-    redirect('/dashboard');
+    router.push('/dashboard');
   };
 
   return (
