@@ -1,7 +1,7 @@
 'use client';
 import { ReactNode } from 'react';
 import { SessionProvider } from 'next-auth/react';
-import AuthPage from '@/components/AuthPage';
+import NotAuthPage from '@/components/NotAuthPage';
 
 type Props = {
   children?: ReactNode;
@@ -10,7 +10,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <SessionProvider>
-      <AuthPage>{children}</AuthPage>
+      <NotAuthPage>{children}</NotAuthPage>
     </SessionProvider>
   );
 };

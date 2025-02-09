@@ -4,21 +4,18 @@ import styles from './styles.module.css';
 import Item from '@/components/List/Reports/Item';
 import Panel from '@/components/Panel';
 import Card from '@/components/Card';
-import { useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 
 const DashboardPage = () => {
-  const { data: session, status } = useSession();
-
-  if (status === 'loading') return <p>Carregando...</p>;
-
-  if (!session) {
-    redirect('/auth/signin');
-    return null;
-  }
-
   return (
     <>
+      <button
+        onClick={async () => {
+          await signOut();
+        }}
+      >
+        Logout
+      </button>
       <Panel title={'Projetos'}>
         <Card.Project></Card.Project>
       </Panel>
